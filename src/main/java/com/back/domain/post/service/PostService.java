@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 /**내가 만든 스프링을 빈에 등록하는 방법: Componet 어노테이션 붙이기*/
 @Component
@@ -20,8 +21,8 @@ public class PostService {
         return postRepository.save(post);
     }
 
-    public Post findById(int id) {
-        return postRepository.findById(id).orElse(null);
+    public Optional<Post> findById(int id) {
+        return postRepository.findById(id);
     }
 
     public List<Post> findAll() {
