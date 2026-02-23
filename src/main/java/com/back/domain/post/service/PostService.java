@@ -5,6 +5,7 @@ import com.back.domain.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,10 +27,11 @@ public class PostService {
         Post post = new Post(title, content);
         return postRepository.save(post);
     }
+    @Transactional
+    public Post modify(Post post, String newTitle, String newContent) {
+        post.setTitle(newTitle);
+        post.setContent(newContent);
 
-    public Post modify(Post post, String title, String content) {
-        post.setTitle(title);
-        post.setContent(content);
         return postRepository.save(post);
     }
 
