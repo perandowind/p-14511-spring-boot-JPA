@@ -27,12 +27,14 @@ public class PostService {
         Post post = new Post(title, content);
         return postRepository.save(post);
     }
+
     @Transactional
     public Post modify(Post post, String newTitle, String newContent) {
+        //더티체킹으로 변화를 감지해서 반영해줌 (return postRepository.save(post) 와 동일한 기능)
         post.setTitle(newTitle);
         post.setContent(newContent);
 
-        return postRepository.save(post);
+        return post;
     }
 
 
