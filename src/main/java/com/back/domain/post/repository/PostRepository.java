@@ -1,6 +1,6 @@
-package com.back.domain.wiseSaying.repository;
+package com.back.domain.post.repository;
 
-import com.back.domain.wiseSaying.entity.Post;
+import com.back.domain.post.entity.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**@id로 지정된 PK의 타입을 기입해야함 int id 이므로 <앤터티 클래스, Integer>*/
