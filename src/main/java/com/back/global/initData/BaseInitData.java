@@ -25,8 +25,8 @@ public class BaseInitData {
     @Bean
     ApplicationRunner baseInitDataRunner() {
         return args -> {
-            self.work1();
             self.work2();
+            self.work1();
         };
     }
     @Transactional
@@ -36,9 +36,8 @@ public class BaseInitData {
             return;
         }
 
-        // 어떤 기능을 테스트 데이터가 2개인 것을 가정하고 개발
-        postService.write("제목1", "내용1");
-        postService.write("제목2", "내용2");
+        postService.write(3, "제목1", "내용1");
+        postService.write(4, "제목2", "내용2");
     }
 
     @Transactional

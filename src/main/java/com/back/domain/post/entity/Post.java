@@ -22,11 +22,15 @@ public class Post extends BaseEntity {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
+    //외래키 필요
+    private int authorId;
+
 
     // Entity가 붙은 클래스는 기본 생성자 필수
     //public Post() {}
 
-    public Post(String title, String content) {
+    public Post(int authorId, String title, String content) {
+        this.authorId = authorId;
         this.title = title;
         this.content = content;
     }
