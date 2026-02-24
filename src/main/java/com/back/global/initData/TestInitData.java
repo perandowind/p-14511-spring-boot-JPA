@@ -19,7 +19,7 @@ public class TestInitData {
 
     @Autowired
     @Lazy
-    private com.back.global.BaseInitData self;
+    private BaseInitData self;
 
     private final PostService postService;
 
