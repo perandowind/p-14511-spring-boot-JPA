@@ -29,7 +29,6 @@ public class BaseInitData {
             self.work3();
         };
     }
-
     @Transactional
     void work1() {
 
@@ -59,5 +58,17 @@ public class BaseInitData {
 
         postService.modify(post, "제목1-1", "내용1-1");
     }
+
+/*
+    @Transactional
+    void work4() {
+        Post post1 = postService.findById(1).get();
+        Post post2 = postService.findById(2).get();
+
+        postService.delete(post1);
+        //if(true) throw new RuntimeException();
+        postService.delete(post2);
+    }
+*/
 
 }

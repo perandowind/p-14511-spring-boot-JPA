@@ -15,7 +15,6 @@ import lombok.Setter;
  // 수정이 일어날때마다 modifyDate를 수정해줌
 public class Post extends BaseEntity {
 
-
     @Column(length = 100, nullable = false)
     private String title;
 
