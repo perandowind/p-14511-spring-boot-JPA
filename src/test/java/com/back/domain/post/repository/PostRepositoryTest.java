@@ -4,14 +4,15 @@ import com.back.domain.post.entity.Post;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 
 @SpringBootTest
-
+@Transactional //테스트 환경에서는 트랜잭션 어노테이션 붙이면 롤백이 기본값이라 @Rollback 생략해도됨
+@ActiveProfiles("test")
 public class PostRepositoryTest {
 
     @Autowired
@@ -19,8 +20,6 @@ public class PostRepositoryTest {
 
 
     @Test
-    @Transactional
-    @Rollback
     void t1(){
         Post post = postRepository.findById(2).get();
 
@@ -30,8 +29,6 @@ public class PostRepositoryTest {
     }
 
     @Test
-    @Transactional
-    @Rollback
     void t2(){
         Post post = new Post("제목3", "내용3");
         Post savedPost = postRepository.save(post);
@@ -42,8 +39,6 @@ public class PostRepositoryTest {
     }
 
     @Test
-    @Transactional
-    @Rollback
     void t3(){
         long cnt = postRepository.count();
         assertThat(cnt).isEqualTo(2);
